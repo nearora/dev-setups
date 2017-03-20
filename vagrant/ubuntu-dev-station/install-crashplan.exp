@@ -1,0 +1,51 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+# Launch the CrashPlan installer
+spawn ./install.sh
+
+# Hit enter to continue with installation
+expect "Press enter to continue*"
+send -- "\r"
+
+# Change /usr/local to /opt
+expect "*parent directory*\\\[/usr/local\\\]"
+send -- "/opt\r"
+
+# Hit enter to create /opt/crashplan. Default answer is 'y'
+expect "*Create /opt/crashplan\\?*"
+send -- "\r"
+
+# Hit enter to link the CrashPlan executable to a directory in shell's path
+expect "*link the CrashPlan executable to*"
+send -- "\r"
+
+# Hit enter to accept default manifest location. This should be changed
+# when the user sets up CrashPlan
+expect "*store incoming backup data*"
+send -- "\r"
+
+# Above manifest location doesn't exist. Accept to create it. Default
+# answer is 'y'
+expect "*Create /opt/crashplan/manifest\\?*"
+send -- "\r"
+
+# Location of SYSV init scripts. Installer should identify this correctly.
+# Accept default
+expect "*SYSV init scripts*"
+send -- "\r"
+
+# Location of runlevel init links. Installer should identify this correctly.
+# Accept default
+expect "*runlevel init links*"
+send -- "\r"
+
+# Accept installer's summary of selections made above. Default is 'y'
+expect "Is this correct\\\?*"
+send -- "\r"
+
+# Installer finishes successfully. Requires hitting enter to complete
+# installation
+expect "Press Enter to complete installation."
+send -- "\r"
