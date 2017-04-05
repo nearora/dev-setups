@@ -12,7 +12,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "Ubuntu Server 16.04.2 LTS 64-bit Vanilla.box"
+  # config.vm.box = "Ubuntu Server 16.04.2 LTS 64-bit Vanilla.box"
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -52,8 +53,8 @@ Vagrant.configure("2") do |config|
   end
 
   # Configure the SSH username and password that Vagrant should use
-  config.ssh.username = "sysadm"
-  config.ssh.password = "password"
+  # config.ssh.username = "sysadm"
+  # config.ssh.password = "password"
 
   # Update repo cache, upgrade and install basic software
   config.vm.provision "shell", inline: <<-SHELL
@@ -81,4 +82,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "install-google-chrome.sh"
   config.vm.provision "shell", path: "install-visual-studio-code.sh"
   config.vm.provision "shell", path: "install-crashplan.sh"
+  config.vm.provision "shell", path: "configure-inotify-limits.sh"
 end
