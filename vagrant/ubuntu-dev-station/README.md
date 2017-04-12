@@ -47,10 +47,6 @@ Vagrant generates and embeds keys that allow the user to execute `vagrant ssh` t
 
 The `ubuntu` user is allowed to elevate to `root` privileges using the `sudo` command with a password.
 
-## Exporting as an OVA
-
-The VirtualBox VM may be exported as an OVA to be used with other virtualization software such as VMware Workstation or VMware Fusion.
-
 ## Modifying Configuration
 
 ### Create User
@@ -63,4 +59,4 @@ Existing SSH keys are deleted when the default user's home directory is deleted.
 
 ## Additional Configuration
 
-The configured operating environment is installed with [CrashPlan](https://www.crashplan.com), which is a backup software that allows you to backup to a local folder, external hard drive, cloud (paid) or a backup server (also running CrashPlan). All backups are encrypted before being transmitted over the wire. With options that range from local, over the network to cloud backups, this is a reasonable choice for backups for users that wish to offload this task. You'll still need to configure the installed CrashPlan instance.
+The configured operating environment is installed with [CrashPlan](https://www.crashplan.com), which is a backup software that allows you to backup to a local folder, external hard drive, cloud (paid) or a backup server (also running CrashPlan). All backups are encrypted before being transmitted over the wire. With options that range from local, over the network to cloud backups, this is a reasonable choice for backups for users that wish to offload this task. You'll need to [configure the installed CrashPlan instance](https://support.crashplan.com/Getting_Started).
